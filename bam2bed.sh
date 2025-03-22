@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /mbshome/vverhoeven/miniforge3/etc/profile.d/conda.sh
+source $(dirname $(dirname $(which mamba)))/etc/profile.d/conda.sh
 
 /mbshome/vverhoeven/miniforge3/condabin/conda create -n bam2bed -y bedtools
 conda_create_return=$?
