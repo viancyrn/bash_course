@@ -36,8 +36,8 @@ if [ ! -s "$filtered_bed_file" ]; then
   exit 1
 fi
 
-line_count=$(wc -l < "$filtered_bed_file")
-printf "%s\n" "$line_count" > "$output_dir/bam2bed_number_of_rows.txt"
+wc -l "$filtered_bed_file" > "$output_dir/bam2bed_number_of_rows.txt"
+
 #echo "$line_count" > "$output_dir/bam2bed_number_of_rows.txt"
 
 cat "$output_dir/bam2bed_number_of_rows.txt"
