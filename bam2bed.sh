@@ -1,18 +1,16 @@
 #!/bin/bash
 
-echo "Starting BAM to BED conversion.."
+source /mbshome/vverhoeven/miniforge3/etc/profile.d/conda.sh
 
-if [ $# -ne 2 ]; then
-  echo "Usage: $0 <input_bam_file> <output_directory>
-  exit 1
-fi
+/mbshome/vverhoeven/miniforge3/condabin/conda create -n bam2bed -y bedtools
+conda_create_return=$?
+echo "conda create return code: $conda_create_return"
 
-input_bam=$1
-output_dir=$2
+/mbshome/vverhoeven/miniforge3/condabin/conda activate bam2bed
+conda_activate_return=$?
+echo "conda activate return code: $conda_create_return"
 
-mkdir -p "$output_dir"
-
-source $(dirname $(dirname $(which mamba)))/etc/profile.d/conda.sh
+echo "Conda environment creation and activation attempted"
 
 base_name=$(basename "$input_bam" .bam)
 
