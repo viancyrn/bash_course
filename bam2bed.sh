@@ -12,6 +12,11 @@ echo "conda activate return code: $conda_create_return"
 
 echo "Conda environment creation and activation attempted"
 
+input_bam=$1
+output_dir=$2
+
+mkdir -p "$output_dir"
+
 base_name=$(basename "$input_bam" .bam)
 
 bed_file="$output_dir/test.bed"
